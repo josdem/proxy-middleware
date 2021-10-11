@@ -5,12 +5,13 @@ const LOCAL_HOST = "localhost"
 const API_SERVICE_URL = "https://webflux.josdem.io/categories/en"
 const PORT = 3000
 
-server.get("/en", (req, res) => {
+server.get("/", (req, res) => {
   res.send("Hello World!")
 })
 
-server.use("", (req, res, next) => {
-  console.log(`request: ${req}`)
+server.use("/adobe_mock", (req, res, next) => {
+  console.log(`request: ${req.headers.market}`)
+  console.log(`response: ${res}`)
   next()
 })
 
