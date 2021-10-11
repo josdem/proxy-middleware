@@ -1,11 +1,13 @@
 const express = require("express")
-const app = express()
-const port = 3000
+const server = express()
+const LOCAL_HOST = "http://localhost"
+const API_SERVICE_URL = "https://webflux.josdem.io/categories/en/"
+const PORT = 3000
 
-app.get("/", (req, res) => {
+server.get("/", (req, res) => {
   res.send("Hello World!")
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+server.listen(PORT, () => {
+  console.log(`Example app listening at ${LOCAL_HOST}:${PORT}`)
 })
