@@ -22,6 +22,14 @@ npx prettier --write .
 npm start
 ```
 
+#### Execution
+
+To send data on the header:
+
+```bash
+curl -H "market: UNITED_STATES" http://localhost:3000/proxy
+```
+
 #### Read this as reference
 
 - https://expressjs.com/en/starter/hello-world.html
