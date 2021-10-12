@@ -11,7 +11,6 @@ server.get("/", (req, res) => {
 
 server.use("/proxy", (req, res, next) => {
   console.log(`request: ${req.headers.market}`)
-  console.log(`response: ${res}`)
   next()
 })
 
