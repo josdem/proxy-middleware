@@ -19,7 +19,7 @@ npx prettier --write .
 #### To run the project
 
 ```bash
-node index.js
+npm start
 ```
 
 #### Read this as reference

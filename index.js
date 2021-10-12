@@ -6,22 +6,22 @@ const API_SERVICE_URL = "https://webflux.josdem.io/categories/en"
 const PORT = 3000
 
 server.get("/", (req, res) => {
-  res.send("Hello World!")
+  res.send("This proxy server wich proxies request to a third party service")
 })
 
-server.use("/adobe_mock", (req, res, next) => {
+server.use("/proxy", (req, res, next) => {
   console.log(`request: ${req.headers.market}`)
   console.log(`response: ${res}`)
   next()
 })
 
 server.use(
-  "/adobe_mock",
+  "/proxy",
   createProxyMiddleware({
     target: API_SERVICE_URL,
     changeOrigin: true,
     pathRewrite: {
-      [`^/adobe_mock`]: "",
+      [`^/proxy`]: "",
     },
   })
 )
