@@ -2,26 +2,18 @@ const { createProxyMiddleware } = require("http-proxy-middleware")
 const express = require("express")
 const server = express()
 const LOCAL_HOST = "localhost"
-const API_SERVICE_URL = "https://webflux.josdem.io/categories/en"
+const API_SERVICE_URL = "http://localhost:8080/users"
 const PORT = 3000
 
-server.get("/", (req, res) => {
+server.get("/info", (req, res) => {
   res.send("This proxy server wich proxies request to a third party service")
 })
 
-server.use("/proxy", (req, res, next) => {
-  console.log(`request: ${req.headers.market}`)
-  next()
-})
-
 server.use(
-  "/proxy",
+  "/users",
   createProxyMiddleware({
     target: API_SERVICE_URL,
     changeOrigin: true,
-    pathRewrite: {
-      [`^/proxy`]: "",
-    },
   })
 )
 
