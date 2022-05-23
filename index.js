@@ -2,7 +2,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware")
 const express = require("express")
 const server = express()
 const LOCAL_HOST = "localhost"
-const API_SERVICE_URL = "http://localhost:8080/users"
+const API_SERVICE_URL = "http://localhost:8080/"
 const PORT = 3000
 
 server.get("/info", (req, res) => {
@@ -13,7 +13,10 @@ server.use(
   "/users",
   createProxyMiddleware({
     target: API_SERVICE_URL,
-    changeOrigin: true,
+    changeOrigin: false,
+    onProxyReq: (proxyReq, req, res) => {
+      console.log(req)
+    }
   })
 )
 
