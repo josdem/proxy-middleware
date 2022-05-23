@@ -27,7 +27,7 @@ npm start
 To send data on the header:
 
 ```bash
-curl -H "market: UNITED_STATES" http://localhost:3000/proxy
+curl -H "market: UNITED_STATES" http://localhost:3000/users
 ```
 
 #### Read this as reference
